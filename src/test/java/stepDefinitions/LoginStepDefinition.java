@@ -33,6 +33,6 @@ public class LoginStepDefinition extends InitApplication{
 
     @Then("user is navigated to the homepage")
     public void userIsNavigatedToTheHomepage() {
-        Assert.assertEquals("Successfully in...", getTextOfElement(driver,GuruDemoLoginPageUI.SUCCESS_MESSAGE)); //Check fail
+        Assert.assertEquals("Successfully Logged in...", getTextOfElement(driver,GuruDemoLoginPageUI.SUCCESS_MESSAGE)); //Check fail
     }
 }
