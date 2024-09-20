@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         //dryRun = true, notify the step not defined
         plugin = {"pretty","html:target/site/cucumber-report-default","json:target/site/cucumber.json"},
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        tags = "@loginCase"
+        tags = "@register"
 )
-public class TestRunner {
+public class GuruInsuranceTestRunner {
 }

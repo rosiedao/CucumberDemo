@@ -2,22 +2,20 @@ package stepDefinitions;
 
 import common.GlobalConstant;
 import common.InitApplication;
-import common.InitBrowser;
 import interfaces.pageUI.GuruDemoLoginPageUI;
-import io.cucumber.java.After;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.Map;
+
 public class LoginStepDefinition extends InitApplication{
+    //Tao ra constructor cho tung step def, luc nao cung goi dau tien
     public LoginStepDefinition(){
         gotoAdminLoginPage();
-    }
-    @Given("user opens login page")
-    public void userOpensLoginPage() {
-        System.out.println("Step 1");
     }
 
     @When("user enters username and password")
@@ -34,5 +32,20 @@ public class LoginStepDefinition extends InitApplication{
     @Then("user is navigated to the homepage")
     public void userIsNavigatedToTheHomepage() {
         Assert.assertEquals("Successfully Logged in...", getTextOfElement(driver,GuruDemoLoginPageUI.SUCCESS_MESSAGE)); //Check fail
+    }
+
+    @When("user enters username with value {string} and password with value {string}")
+    public void userEntersUsernameWithValueAndPasswordWithValue(String email, String password) {
+        inputDataToTextField(driver, GuruDemoLoginPageUI.EMAIL, email);
+        inputDataToTextField(driver,GuruDemoLoginPageUI.PASSWORD, password);
+    }
+
+    @When("user enters username and password as below data")
+    public void userEntersUsernameAndPasswordAsBelowData(DataTable dataTable) {
+        //List<Map<String, String>> accounts = dataTable.asMaps(String.class, String.class);
+        for(Map<String, String> loginInfo : dataTable.asMaps(String.class, String.class)) {
+            inputDataToTextField(driver, GuruDemoLoginPageUI.EMAIL, loginInfo.get("Username"));
+            inputDataToTextField(driver, GuruDemoLoginPageUI.PASSWORD, loginInfo.get("Password"));
+        }
     }
 }

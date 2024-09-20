@@ -1,0 +1,4 @@
+To run:
+mvn clean
+mvn test verify
+mvn clean test -DBROWSER=firefox verify

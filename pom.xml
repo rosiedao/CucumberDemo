@@ -12,6 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <cucumber.version>7.18.0</cucumber.version>
+    <report.version>5.8.2</report.version>
   </properties>
 
   <dependencies>
@@ -19,20 +21,20 @@
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
-      <version>7.18.0</version>
+      <version>${cucumber.version}</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-junit</artifactId>
-      <version>7.18.0</version>
+      <version>${cucumber.version}</version>
       <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
     <dependency>
       <groupId>net.masterthought</groupId>
       <artifactId>cucumber-reporting</artifactId>
-      <version>5.8.2</version>
+      <version>${report.version}</version>
     </dependency>
 
 
@@ -64,7 +66,7 @@
         <configuration>
           <testFailureIgnore>true</testFailureIgnore>
           <includes>
-            <include>**/*/TestRunner.java</include>
+            <include>**/*/GuruInsuranceTestRunner.java</include>
           </includes>
         </configuration>
       </plugin>
@@ -73,7 +75,7 @@
       <plugin>
         <groupId>net.masterthought</groupId>
         <artifactId>maven-cucumber-reporting</artifactId>
-        <version>5.8.2</version>
+        <version>${report.version}</version>
         <executions>
           <execution>
             <id>execution</id>

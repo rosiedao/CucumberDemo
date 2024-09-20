@@ -90,11 +90,11 @@ public class BasePage {
         explicitWait = new WebDriverWait(driver, GlobalConstant.EXPLICIT_LONG_TIMEOUT,GlobalConstant.POLLING_TIMEOUT);
         return explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByLocator(getDynamicLocator(elementLocator, restParam)))).isSelected();
     }
-    public void inputDataToTextField(WebDriver driver, String elementLocator, String data){
+    public void inputDataToTextField(WebDriver driver, String data, String elementLocator){
         driver.findElement(getByLocator(elementLocator)).clear();
         driver.findElement(getByLocator(elementLocator)).sendKeys(data);
     }
-    public void inputDataToTextField(WebDriver driver, String dynamicLocator, String data, String... restParam){
+    public void inputDataToTextField(WebDriver driver, String data, String dynamicLocator, String... restParam){
         driver.findElement(getByLocator(getDynamicLocator(dynamicLocator,restParam))).clear();
         driver.findElement(getByLocator(getDynamicLocator(dynamicLocator,restParam))).sendKeys(data);
     }
@@ -115,8 +115,12 @@ public class BasePage {
         }
         return stringBuilder.toString();
     }
-    public void selectValueOfDropdownList(WebDriver driver, String elementLocator, String value){
+    public void selectValueOfDropdownList(WebDriver driver, String value, String elementLocator){
         Select select = new Select(driver.findElement(getByLocator(elementLocator)));
+        select.selectByVisibleText(value);
+    }
+    public void selectValueOfDropdownList(WebDriver driver, String value, String dynamicLocator, String... restParam){
+        Select select = new Select(driver.findElement(getByLocator(getDynamicLocator(dynamicLocator, restParam))));
         select.selectByVisibleText(value);
     }
     public String getSelectedValueOfDropdownList(WebDriver driver, String elementLocator){

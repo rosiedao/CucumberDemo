@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 
-public class InitBrowser extends BasePage{
+public class Hooks extends BasePage{
     public static WebDriver driver;
 
     public synchronized static WebDriver getDriver(){
