@@ -30,4 +30,4 @@
 
         Examples:
           | Title | Firstname | Surname | Phone     | Year | Month | Day | Radio | License Period | Occupation | Street        | City | Country | Postcode | Email | Password | Confirm Password |
-          | Mrs   | Dung      | Dao     | 029384324 | 1992 | March | 17  | Full  | 1              | Academic   | Duong Ba Trac | HCM  | VN      | 100000   | dung  | admin    | admin            |
+          | Mrs   | Dung      | Dao     | 029384323 | 1992 | March | 17  | Full  | 1              | Academic   | Duong Ba Trac | HCM  | VN      | 100000   | dung  | admin    | admin            |
